@@ -1,0 +1,44 @@
+# Ignore system and temporary files
+AppData/
+**/AppData/**
+**/Cache/**
+**/Chrome/**
+**/User Data/**
+*.tmp
+*.ldb
+
+# Dependencies
+node_modules/
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store
+
+# Android/IntelliJ
+build/
+.idea
+.gradle
+local.properties
+*.iml
+*.hprof
+
+# metro
+.metro-health-check*
+
+# expo
+expo-env.d.ts
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
