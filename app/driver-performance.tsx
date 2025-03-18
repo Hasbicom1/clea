@@ -196,7 +196,7 @@ export default function DriverPerformanceScreen() {
       {/* Taxi Apps Card (Replacing Bil körsträcka card) */}
       <TouchableOpacity 
         style={styles.performanceCard}
-        onPress={() => router.push('/car-performance-detail')}
+        onPress={() => router.push('/offers')}
       >
         <Text style={styles.cardTitle}>Taxi Appar</Text>
         

@@ -1,51 +1,58 @@
 {
   "cli": {
-    "version": ">= 5.9.1",
-    "appVersionSource": "remote",
-    "requireCommit": false
+    "version": "5.9.1",
+    "promptToConfigurePushNotifications": false
   },
   "build": {
     "development": {
       "developmentClient": true,
       "distribution": "internal",
       "android": {
-        "buildType": "apk",
-        "gradleCommand": ":app:assembleDebug"
+        "buildType": "apk"
       }
     },
     "preview": {
-      "distribution": "internal",
       "android": {
         "buildType": "apk",
-        "gradleCommand": ":app:assembleRelease"
-      }
-    },
-    "preview2": {
-      "android": {
-        "gradleCommand": ":app:assembleRelease",
-        "buildType": "apk"
-      }
-    },
-    "preview3": {
-      "developmentClient": true,
-      "android": {
-        "buildType": "apk"
+        "developmentClient": true,
+        "distribution": "internal",
+        "gradleCommand": ":app:assembleDebug"
       }
     },
     "production": {
-      "autoIncrement": true,
+      "node": "18.17.0",
       "android": {
-        "buildType": "app-bundle"
+        "buildType": "apk",
+        "image": "ubuntu-22.04-jdk-11-ndk-r21e",
+        "gradleCommand": ":app:assembleRelease",
+        "env": {
+          "ANDROID_NDK_HOME": "/opt/android-ndk-r21e",
+          "ANDROID_HOME": "/opt/android-sdk",
+          "GRADLE_OPTS": "-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs=-Xmx6g -XX:MaxPermSize=1024m -XX:+HeapDumpOnOutOfMemoryError"
+        }
+      },
+      "cache": {
+        "key": "eas-build-production-v1",
+        "paths": [
+          "~/.gradle/caches",
+          "~/android/.gradle",
+          "node_modules"
+        ]
       }
     },
     "apk": {
       "android": {
         "buildType": "apk",
-        "withoutCredentials": true
+        "image": "default"
       }
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./google-services.json",
+        "track": "production"
+      }
+    }
   }
 }

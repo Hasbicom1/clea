@@ -50,6 +50,8 @@ export default function RootLayout() {
         <Stack.Screen name="analysis" />
         <Stack.Screen name="money-manager" />
         <Stack.Screen name="route-tracker" />
+        <Stack.Screen name="offers" />
+        <Stack.Screen name="orders" />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="light" />

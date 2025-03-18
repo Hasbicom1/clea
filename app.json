@@ -17,15 +17,11 @@
       "**/*"
     ],
     "updates": {
-      "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/791dc56b-1c38-4dd7-a63f-7bba5f7d8240"
+      "fallbackToCacheTimeout": 0
     },
-    "runtimeVersion": {
-      "policy": "sdkVersion"
-    },
+    "runtimeVersion": "1.0.0",
     "android": {
       "package": "com.hasbicom4.boltexponativewind",
-      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
@@ -52,9 +48,8 @@
         "origin": false
       },
       "eas": {
-        "projectId": "791dc56b-1c38-4dd7-a63f-7bba5f7d8240"
+        "projectId": "312049ff-c0b9-4f20-998a-301f739ddc64"
       }
-    },
-    "owner": "hasbicom4"
+    }
   }
 }
