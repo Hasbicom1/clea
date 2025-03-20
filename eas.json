@@ -1,58 +1,43 @@
 {
   "cli": {
-    "version": "5.9.1",
-    "promptToConfigurePushNotifications": false
+    "version": ">= 5.9.1",
+    "appVersionSource": "remote"
   },
   "build": {
     "development": {
       "developmentClient": true,
       "distribution": "internal",
       "android": {
-        "buildType": "apk"
-      }
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "env": {
+        "ANDROID_SDK_ROOT": "~/Android/Sdk"
+      },
+      "channel": "development"
     },
     "preview": {
+      "distribution": "internal",
       "android": {
         "buildType": "apk",
-        "developmentClient": true,
-        "distribution": "internal",
-        "gradleCommand": ":app:assembleDebug"
-      }
-    },
-    "production": {
-      "node": "18.17.0",
-      "android": {
-        "buildType": "apk",
-        "image": "ubuntu-22.04-jdk-11-ndk-r21e",
         "gradleCommand": ":app:assembleRelease",
+        "withoutCredentials": true,
         "env": {
-          "ANDROID_NDK_HOME": "/opt/android-ndk-r21e",
-          "ANDROID_HOME": "/opt/android-sdk",
-          "GRADLE_OPTS": "-Dorg.gradle.daemon=false -Dorg.gradle.jvmargs=-Xmx6g -XX:MaxPermSize=1024m -XX:+HeapDumpOnOutOfMemoryError"
+          "ANDROID_NDK_HOME": "~/Android/Sdk/ndk/23.1.7779620",
+          "ANDROID_SDK_ROOT": "~/Android/Sdk",
+          "GRADLE_OPTS": "-Dorg.gradle.jvmargs=-Xmx4096m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8",
+          "JAVA_HOME": "~/Android/Sdk/jdk/17.0.2"
         }
       },
-      "cache": {
-        "key": "eas-build-production-v1",
-        "paths": [
-          "~/.gradle/caches",
-          "~/android/.gradle",
-          "node_modules"
-        ]
-      }
+      "channel": "preview"
     },
-    "apk": {
+    "production": {
       "android": {
-        "buildType": "apk",
-        "image": "default"
-      }
+        "buildType": "apk"
+      },
+      "channel": "production"
     }
   },
   "submit": {
-    "production": {
-      "android": {
-        "serviceAccountKeyPath": "./google-services.json",
-        "track": "production"
-      }
-    }
+    "production": {}
   }
 }

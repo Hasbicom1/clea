@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Vilotid App",
+    "name": "vilotid-app",
     "slug": "vilotid-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vilotid.app"
     },
     "android": {
       "adaptiveIcon": {
@@ -30,6 +31,10 @@
     "plugins": [
       "expo-router"
     ],
-    "scheme": "vilotid-app"
+    "scheme": "vilotid-app",
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/68421be7-a82f-472d-8324-09abf541704a"
+    }
   }
-}
+} 
